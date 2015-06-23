@@ -7,10 +7,13 @@ gem 'rails-api'
 
 gem 'spring', :group => :development
 
+gem 'active_model_serializers', '0.8.3'
 
 gem 'pg'
 
+gem 'snooby'
 
+gem 'pry-rails'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

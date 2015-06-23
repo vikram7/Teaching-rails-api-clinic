@@ -1,7 +1,13 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
+reddit = Snooby::Client.new
+jokes = reddit.subreddit('dadjokes').posts
+
+jokes.each do |joke|
+  j = Joke.new
+  j.title = joke.title
+  j.self_text = joke.selftext
+  j.author = joke.author
+  j.score = joke.score
+  j.num_comments = joke.num_comments
+  j.save!
+  puts "created joke with title #{j.title}"
+end
